@@ -34,3 +34,19 @@ class account_check(osv.osv):
 
 account_check()
 
+
+class account_check_hold(osv.osv_memory):
+	_name = 'account.check.hold'
+
+	def action_hold(self, cr, uid, ids, context=None):
+		check_obj = self.pool.get('account.check')
+		check_ids = context['active_ids']
+		for check_id in check_ids:
+			check_object = check_obj.browse(cr,uid,check_id)
+			if check_object.state == 'draft':
+		                check_object.signal_workflow('draft_router')
+		        	# check_object.signal_workflow('holding_handed')
+		return None
+	
+
+account_check_hold()
