@@ -20,15 +20,15 @@
 ##############################################################################
 
 {
-    'name': "Module that adds supplier information to supplier invoices and account vouchers",
+    'name': "Modulo que agrega extras a la operacion de finanzas de NH",
     'version': '0.1',
     'category': 'Accounting & Finance',
     'author': 'Moldeo Interactive',
     'website': 'http://business.moldeo.coop',
     'license': 'AGPL-3',
-    "depends" : ['account','account_voucher'],
+    "depends" : ['account_check'],
     "data" : [
-        'invoice_view.xml','voucher_view.xml'
+        'check_view.xml'
         ],
     'test' : [
     ],
